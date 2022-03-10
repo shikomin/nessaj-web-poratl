@@ -1,0 +1,13 @@
+server:
+  port: 9095
+  ssl:
+    key-store: ${KEYSTORE_PATH}
+    key-store-password: ${KEYSTORE_PASSWORD}
+    keyStoreType: ${KEYSTORE_TYPE}
+    keyAlias: ${KEYSTORE_ALIAS}
+    enabled: true
+    trust-store: ${TRUSTSTORE_PATH}
+    trust-store-password: ${TRUSTSTORE_PASSWORD}
+    trust-store-type: ${TRUSTSTORE_TYPE}
+  servlet:
+    context-path: /
