@@ -1,4 +1,4 @@
-package com.nessaj.web.portal.filter;
+package com.nessaj.portal.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

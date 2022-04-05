@@ -1,4 +1,4 @@
-package com.nessaj.web.portal.constant;
+package com.nessaj.portal.constant;
 
 /**
  * @author keming

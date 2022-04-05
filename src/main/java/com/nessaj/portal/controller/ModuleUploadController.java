@@ -1,8 +1,8 @@
-package com.nessaj.web.portal.controller;
+package com.nessaj.portal.controller;
 
-import com.nessaj.web.portal.constant.PortalConstant;
-import com.nessaj.web.portal.handler.DispatcherHandler;
-import com.nessaj.web.sdk.httpclient.core.HttpResponse;
+import com.nessaj.portal.constant.PortalConstant;
+import com.nessaj.portal.handler.DispatcherHandler;
+import com.nessaj.sdk.httpclient.core.HttpResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +31,7 @@ public class ModuleUploadController {
         String fileName = file.getOriginalFilename();
         HttpResponse response = null;
         try {
-            response = DispatcherHandler.redirectFile2Manager(file.getInputStream(), fileName);
+            response = DispatcherHandler.redirectFile(file.getInputStream(), fileName);
         } catch (IOException e) {
             logger.error(PortalConstant.REDIRECT_MODULE_FAILED, e);
         }

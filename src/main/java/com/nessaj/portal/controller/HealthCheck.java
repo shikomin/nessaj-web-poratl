@@ -1,11 +1,11 @@
-package com.nessaj.web.portal.controller;
+package com.nessaj.portal.controller;
 
-import com.nessaj.web.portal.constant.PortalConstant;
+import com.nessaj.portal.constant.PortalConstant;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HealthcheckController {
+public class HealthCheck {
 
     @GetMapping("/healthcheck")
     public String healthCheck() {
