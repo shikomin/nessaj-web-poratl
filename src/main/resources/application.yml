@@ -19,3 +19,8 @@ spring:
       max-request-size: 100MB
       enabled: true
       resolve-lazily: false
+cas:
+  server-url-prefix: https://cas1.com:8443/cas
+  server-login-url: https://cas1.com:8443/cas/login
+  client-host-url: https://localhost:9095/
+  validation-type: cas3

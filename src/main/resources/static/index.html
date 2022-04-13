@@ -1,0 +1,161 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Diabetes Predict</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form class="form-horizontal" method="post" onsubmit="return false" action="##" id="form">
+    <h1 class="figure-caption text-center">Diabetes Predict</h1>
+    <div style="height: 20px"></div>
+    <div class="row">
+        <div class="col col-sm-4">
+            <label for="inputAge" class="control-label col-sm-2">年龄</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="inputAge">
+                    <option selected>Age</option>
+                    <option>20-24</option>
+                    <option>25-34</option>
+                    <option>35-39</option>
+                    <option>40-44</option>
+                    <option>55-49</option>
+                    <option>50-54</option>
+                    <option>55-59</option>
+                    <option>60-64</option>
+                    <option>65-74</option>
+                </select>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <label for="inputWeight" class="control-label col-sm-4">体重(kg)</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="weight" placeholder="Weight" id="inputWeight">
+            </div>
+            <label for="inputHeight" class="control-label col-sm-2">身高(cm)</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="height" placeholder="Height" id="inputHeight" style="">
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <label for="inputSystolicPressure" class="control-label col-sm-3">收缩压</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="inputSystolicPressure">
+                    <option selected>收缩压</option>
+                    <option>0-110</option>
+                    <option>110-119</option>
+                    <option>120-129</option>
+                    <option>130-139</option>
+                    <option>140-149</option>
+                    <option>150-159</option>
+                    <option>160-1000</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div style="height: 15px"></div>
+
+    <div class="row">
+
+        <div class="col col-sm-4">
+            <label for="inputUpperArm" class="control-label col-sm-2">腰围(cm)</label>
+            <div class="col-sm-5">
+                <div class="radio">
+                    <label><input type="radio" name="radioHuman" id="radioMale" value="male">男</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="radioHuman" id="radioFemale" value="female">女</label>
+                </div>
+                <!--<label class="radio-inline"><input type="radio" name="radioMale" id="radioMale">Male</label>
+                <label class="radio-inline"><input type="radio" name="radioMale" id="radioFemale">Female</label>-->
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control" id="inputUpperArm">
+                    <option selected>Upper Arm(cm)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col col-sm-7">
+            <label for="inputFMDiabetes" class="control-label col-sm-2">家族患病史</label>
+            <div class="col-sm-2" style="width:12%">
+                <div class="radio">
+                    <label><input type="radio" name="radioDiabetes" id="radioSuffering" value="Suffering">有</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="radioDiabetes" id="radioNoSuffer" value="NoSuffer">无</label>
+                </div>
+                <!--<label class="radio-inline"><input type="radio" name="radioMale" id="radioSuffering">Suffering</label>
+                <label class="radio-inline"><input type="radio" name="radioMale" id="radioNoSuffer">NoSuffer</label>-->
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" id="inputFMDiabetes" style="width:108%">
+                    <option selected="">FMDiabetes</option>
+                </select>
+            </div>
+        </div>
+        <div class="col col-sm-1">
+            <button type="button" class="btn btn-primary" id="submit">submit</button>
+        </div>
+        <a href="/logout">安全退出</a>
+        <div class="col col-sm-1">
+            <button type="button" class="btn btn-primary" id="logout">登出</button>
+        </div>
+    </div>
+    <div style="height: 15px">
+
+    </div>
+    <div class="form-group">
+        <textarea type="hidden" class="form-control" id="result" aria-describedby="basic-addon3"></textarea>
+    </div>
+</form>
+
+</body>
+
+<script>
+
+    $(function () {
+        $('input[type=radio][name=radioHuman]').click(function () {
+            let value = $(this).val();
+            console.log("您是..." + value);
+            if ("male" == value) {
+                console.log(value);
+                $("#inputUpperArm").append("<option value='1'>0-75</option>");
+                $("#inputUpperArm").append("<option value='2'>75-79.9</option>");
+                $("#inputUpperArm").append("<option value='3'>80-84.9</option>");
+                $("#inputUpperArm").append("<option value='4'>85-89.9</option>");
+                $("#inputUpperArm").append("<option value='5'>90-94.9</option>");
+                $("#inputUpperArm").append("<option value='6'>95-1000</option>");
+            } else {
+                $("#inputUpperArm").append("<option value='1'>0-70</option>");
+                $("#inputUpperArm").append("<option value='2'>70-74.9</option>");
+                $("#inputUpperArm").append("<option value='3'>75-79.9</option>");
+                $("#inputUpperArm").append("<option value='4'>80-84.9</option>");
+                $("#inputUpperArm").append("<option value='5'>95-99.9</option>");
+                $("#inputUpperArm").append("<option value='6'>90-1000</option>");
+            }
+        });
+
+        $('input[type=radio][name=radioDiabetes]').click(function () {
+            let value = $(this).val();
+            console.log("您是..." + value);
+            if ("Suffering" == value) {
+                console.log(value);
+                $("#inputFMDiabetes").append("<option value='1'>男</option>");
+                $("#inputFMDiabetes").append("<option value='2'>女</option>");
+            }
+        });
+
+        $("#logout").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "https://localhost:9095/logout",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        });
+    });
+</script>
+</html>
